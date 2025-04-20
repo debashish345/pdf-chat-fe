@@ -7,6 +7,9 @@
                     <p class="w-[70%] truncate">{{ selectedFile.name }}</p>
                     <p>{{ selectedFile.size / 1024 | number: '1.0-2' }} MB</p>
                     <button (click)="uploadFile()" class="p-1.5 rounded-md bg-amber-400 hover:bg-amber-500 hover:scale-105 transition-transform duration-200 ease-in-out cursor-pointer">Upload</button>
+                    @if (uploadError) {
+                        <span class="text-red-500 text-sm">Error: {{ uploadError }}</span>
+                    }
                 </div>
             }
         </div>
