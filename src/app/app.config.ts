@@ -3,6 +3,7 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { ClerkService } from './service/clerk.service';
+import { provideHttpClient } from '@angular/common/http';
 
 function initializeClerk(clerkService: ClerkService): () => Promise<void> {
   return () => clerkService.load();
@@ -11,6 +12,7 @@ function initializeClerk(clerkService: ClerkService): () => Promise<void> {
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
+    provideHttpClient(),
     ClerkService,
     {
       provide: APP_INITIALIZER,
